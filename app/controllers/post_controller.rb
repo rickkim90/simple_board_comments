@@ -9,7 +9,8 @@ class PostController < ApplicationController
   def create #작성된 게시글 DB에 넣는 액션
     Post.create(
       title: params[:title],
-      content: params[:content]
+      content: params[:content],
+      user_id: session[:user_id]
     )
     redirect_to '/'
   end

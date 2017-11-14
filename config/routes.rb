@@ -1,15 +1,31 @@
 Rails.application.routes.draw do
+  resources :blogs
+  
+  resources :tweets
+  
+  get 'user/index'
+
+  get 'user/new'
+
+  post 'user/create'
+  
+  get 'user/login'
+  
+  post 'user/login_process'
+  
+  get 'user/logout'
+
   root 'post#index'
   
   get 'post/index'
 
   get 'post/new'
 
-  get 'post/create'
+  post 'post/create'
 
   get 'post/show/:id' => 'post#show' #보기 post/show/숫자
 
-  get 'post/create_comment/:id'  => 'post#create_comment'
+  post 'post/create_comment/:id'  => 'post#create_comment'
 
   get 'post/index'
 
